@@ -26,12 +26,14 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// router.post('/:id', async (req, res) => {
-//   try {
-//     const
-//   } catch (error) {
-//     console.log(error)
-//     res.status(500).json({ message: 'Something went wrong' })
-//   }
-// })
+router.post('/', async (req, res) => {
+  try {
+    const newHobby = req.body
+    await db.createHobby(newHobby)
+    res.sendStatus(201)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ message: 'Something went wrong' })
+  }
+})
 export default router

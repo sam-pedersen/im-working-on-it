@@ -7,3 +7,6 @@ export async function getAllHobbies(): Promise<Hobbies[]> {
 export async function getHobbyById(id: number) {
   return await db('Hobbies').where('id', id).select()
 }
+export async function createHobby(data: Hobbies) {
+  return await db('hobbies').insert(data)
+}
