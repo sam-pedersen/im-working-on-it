@@ -1,5 +1,5 @@
 import { useHobbies } from '../hooks/useHobbies.ts'
-
+import Nav from './Nav.tsx'
 function App() {
   const { data } = useHobbies()
 
@@ -7,6 +7,7 @@ function App() {
     <>
       <div className="app">
         <h1>Fullstack Boilerplate </h1>
+        {/* <Nav /> */}
         <ul>
           {data && data.map((hobbies) => <li key={hobbies}>{hobbies}</li>)}
         </ul>
