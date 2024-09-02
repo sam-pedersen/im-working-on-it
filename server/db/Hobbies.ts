@@ -10,3 +10,10 @@ export async function getHobbyById(id: number) {
 export async function createHobby(data: Hobbies) {
   return await db('hobbies').insert(data)
 }
+export async function updateHobby(data: Hobbies, id: number) {
+  return await db('hobbies').where('id', id).update(data)
+}
+
+export async function deleteHobby(data: Hobbies, id: number) {
+  return await db('hobbies').where({ id }).delete()
+}

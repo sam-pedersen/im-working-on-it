@@ -36,4 +36,28 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
+
+router.patch('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const updatedHobby = req.body
+    await db.updateHobby(updatedHobby, id)
+    res.sendStatus(200)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const id = Number(req.params.id)
+    const deleteHobbyById = req.body
+    await db.deleteHobby(deleteHobbyById, id)
+    res.sendStatus(200)
+  } catch (error) {
+    console.error(`database error: ${error}`)
+    res.sendStatus(500)
+  }
+})
 export default router
