@@ -27,8 +27,3 @@ export function useHobbiesMutation<TData = unknown, TVariables = unknown>(
 
   return mutation
 }
-
-// Query functions go here e.g. useAddFruit
-/* function useAddFruit() {
-  return useFruitsMutation(addFruit)
-} */
