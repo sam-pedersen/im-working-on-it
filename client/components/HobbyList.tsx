@@ -5,6 +5,7 @@ export interface Hobby {
   id: number
   name: string
   description: string
+  start_date?: Date
 }
 
 export function useHobbies() {

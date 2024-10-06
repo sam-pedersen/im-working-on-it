@@ -16,8 +16,8 @@ export async function addHobby(hobby: string) {
     description: hobby,
     completed: false,
     id: 0,
-    start_date: undefined,
     timestamps: false,
+    start_date: undefined,
   }
   await request.post(rootUrl).send(newHobby)
 }
