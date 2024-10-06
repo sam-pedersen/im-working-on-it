@@ -1,30 +1,26 @@
 import { useState, useEffect } from 'react'
 
-// Define the structure of a Hobby
+// Define the Hobby type with the correct fields
 export interface Hobby {
   id: number
   name: string
   description: string
-  start_date?: Date
+  start_date?: string // Optional start_date
 }
 
+// Hook to fetch the hobbies
 export function useHobbies() {
-  const [data, setData] = useState<Hobby[] | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [data, setData] = useState<Hobby[]>([]) // Correctly type as Hobby[]
 
   useEffect(() => {
-    const fetchHobbies = async () => {
-      try {
-        const response = await fetch('/api/hobbies') // Assuming this returns a JSON array of Hobby objects
-        const hobbies: Hobby[] = await response.json() // Ensure it's typed as an array of Hobby
-        setData(hobbies)
-      } catch (err) {
-        setError('oh no error')
-      }
+    async function fetchHobbies() {
+      const response = await fetch('/api/v1/hobbies') // Replace with your actual API call
+      const hobbies: Hobby[] = await response.json()
+      setData(hobbies)
     }
 
     fetchHobbies()
   }, [])
 
-  return { data, error }
+  return { data }
 }

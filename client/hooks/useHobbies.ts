@@ -6,6 +6,7 @@ import {
 } from '@tanstack/react-query'
 import { fetchHobbies } from '../apis/Hobbies.ts'
 export interface Hobby {
+  start_date: unknown
   id: number
   name: string
   description: string
