@@ -30,7 +30,7 @@ The goal of the MVP is to create a functional, stripped-down version of the "I'm
 ### **Technology Stack**
 - **Frontend**:
   - **React**: For building the user interface.
-  - **Axios**: For making API requests to the backend.
+  - **React again**: For making API requests to the backend.
 
 - **Backend**:
   - **Node.js with Express**: For creating the server and API endpoints.

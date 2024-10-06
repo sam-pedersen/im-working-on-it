@@ -4,10 +4,15 @@ import {
   useQueryClient,
   MutationFunction,
 } from '@tanstack/react-query'
-import { getHobbies } from '../apis/Hobbies.ts'
+import { fetchHobbies } from '../apis/Hobbies.ts'
+export interface Hobby {
+  id: number
+  name: string
+  description: string
+}
 
 export function useHobbies() {
-  const query = useQuery({ queryKey: ['fruits'], queryFn: getHobbies })
+  const query = useQuery({ queryKey: ['fruits'], queryFn: fetchHobbies })
   return {
     ...query,
     // Extra queries go here e.g. addFruit: useAddFruit()

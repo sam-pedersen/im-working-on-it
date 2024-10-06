@@ -1,19 +1,18 @@
-import { useHobbies } from '../hooks/useHobbies.ts'
+import { useHobbies, Hobby } from '../hooks/useHobbies';
 
 function App() {
-  const { data } = useHobbies()
+  const { data, error } = useHobbies();
 
   return (
-    <>
-      <div className="app">
-        <h1>Fullstack Boilerplate </h1>
-
-        <ul>
-          {data && data.map((hobbies) => <li key={hobbies}>{hobbies}</li>)}
-        </ul>
-      </div>
-    </>
-  )
+    <div className="app">
+      <h1>I'm Working On It!</h1>
+      <ul>
+        {data && data.map((hobby: Hobby) => (
+          <li key={hobby.id}>{hobby.name}</li> {/* Map through hobby objects */}
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default App;
